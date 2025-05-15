@@ -22,7 +22,7 @@ export async function fetchGroupedUsers(): Promise<IMappedDepartment> {
 
     const deptData = result[dept];
 
-    deptData[user.gender]++;
+    deptData[user.gender as 'male' | 'female']++;
     deptData.hair[user.hair.color] = (deptData.hair[user.hair.color] || 0) + 1;
     deptData.addressUser[`${user.firstName}${user.lastName}`] = user.address.postalCode;
     deptData?.ages?.push(user.age);
